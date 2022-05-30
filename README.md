@@ -1,6 +1,8 @@
 # Build Instructions
 
-Make sure that you have libibverbs and associated development packages installed, then compile using "make"
+Make sure that you have libibverbs and associated development packages installed, then compile with:
+
+    ./compile.sh
 
 # Running Instructions
 
