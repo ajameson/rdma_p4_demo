@@ -724,10 +724,11 @@ int main(int argc, char *argv[])
 		memset(&my_dest.gid, 0, sizeof my_dest.gid);
 
 	inet_ntop(AF_INET6, &my_dest.gid, gid, sizeof gid);
-	printf("  local address:  LID 0x%04x, QPN 0x%06x, PSN 0x%06x: GID %s\n",
+	printf("  local address:  LID 0x%04x, QPN 0x%06x, PSN 0x%06x, GID %s\n",
 	       my_dest.lid, my_dest.qpn, my_dest.psn, gid);
 
-	printf("0x%04x:0x%06x:0x%06x:%s\n", my_dest.lid, my_dest.qpn, my_dest.psn, gid);
+	gid_to_wire_gid(&my_dest.gid, gid);
+	printf("%04x:%06x:%06x:%s\n", my_dest.lid, my_dest.qpn, my_dest.psn, gid);
 
 	if (servername)
 		rem_dest = pp_client_exch_dest(servername, port, &my_dest);
